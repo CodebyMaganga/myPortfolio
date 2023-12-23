@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <script defer src="index.js"></script>
+    <title>Maganga</title>
+  </head>
+  <body>
+    <section class="navbar">
+      <nav class="nav">
+        <div class="title">
+          <img class="logo" src="/utils/logo1.png" alt="" />
+        </div>
+        <div class="links">
+          <a href="/index.html">Home</a>
+          <a href="/portfolio.html">Portfolio</a>
+          <a href="mailto: codebymaganga@gmail.com">Contact</a>
+        </div>
+      </nav>
+    </section>
+
+    <!-------------------------------------------------------------------------------------->
+    <div class="body-container">
+      <div class="text-container">
+        <p class="typed-text"></p>
+        <h2>
+          <span class="name"></span>
+          <span style="font-weight: bolder" , class="surname"></span>
+        </h2>
+        <h2 class="build">
+          <span class="webText"></span>
+        </h2>
+        <div class="about-container">
+          <p class="about"></p>
+        </div>
+
+        <div class="btn-container fade-in">
+          <a href="/portfolio.html" class="btns">Resume</a>
+          <a href="http://www.linkedin.com/in/codebymaganga" class="btns"
+            >Reach Out</a
+          >
+        </div>
+      </div>
+      <div class="hero hidden">
+        <div class="stack-container">
+          <img src="./utils/html5.png" alt="" />
+          <img src="./utils/css2.png" alt="" />
+          <img src="./utils/Java.webp" alt="" />
+          <img src="./utils/react.png" alt="" />
+          <img src="./utils/python.png" alt="" />
+          <img src="./utils/tailwind.png" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const p = document.querySelector(".typed-text");
+      const name = document.querySelector(".name");
+      const surname = document.querySelector(".surname");
+      const build = document.querySelector(".build");
+      const about = document.querySelector(".about");
+      const text = "Hi my name is";
+      const nametext = "Maganga";
+      const name2text = "Mwambonu.";
+      const buildText = "I build things for the web.";
+      const aboutText =
+        "I'm a software engineer specializing and designing exceptional digital experiences.Proficient in Front End Development, I craft\
+            user interfaces that resonates with users.";
+
+      function typingEffect(element, text, i = 0, speed = 50) {
+        if (i === 0) {
+          element.textContent = "";
+        }
+
+        element.textContent += text[i];
+
+        if (i < text.length - 1) {
+          setTimeout(() => typingEffect(element, text, i + 1, speed), speed);
+        }
+      }
+
+      setTimeout(() => typingEffect(p, text), 800); // 1000 milliseconds (1 second) delay before starting the first typing effect
+      setTimeout(() => typingEffect(name, nametext), 1500); // 3000 milliseconds (3 seconds) delay before starting the second typing effect
+      setTimeout(() => typingEffect(surname, name2text), 2000);
+      setTimeout(() => typingEffect(build, buildText), 2500);
+      setTimeout(() => typingEffect(about, aboutText), 5000);
+
+      // Select your buttons
+      const buttons = document.querySelectorAll(".btns");
+
+      // Function to add the fade-in class after a delay
+      function fadeInButtons() {
+        buttons.forEach((button) => {
+          setTimeout(() => {
+            button.classList.add("fade-in");
+          }, 700); // Adjust the delay as needed
+        });
+      }
+
+      // Call the function when needed, for instance, after content loads
+      window.addEventListener("load", fadeInButtons);
+    </script>
+  </body>
+</html>
